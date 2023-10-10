@@ -1,0 +1,26 @@
+plugins {
+    id 'application'
+}
+
+group "com.example"
+version "0.0.1"
+mainClassName = "com.example.ApplicationKt"
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:$junit_jupiter_version"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
